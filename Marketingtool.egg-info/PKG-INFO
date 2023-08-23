@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: Marketingtool
+Version: 0.0.1
+Summary: A tool module to generate captions from video
+Author: Robert Zeng
+Author-email: zengjianze@gmail.com
+Description-Content-Type: text/markdown
+
+#Marketing Tool
+This package is a tool help you do some job like transcribe the speech in video, save your time
+### How to use
+Transcribe the speech in video
+```
+Marketingtool --action transcribe -f videofilepath
+```
+
+### How to develop
+You can also install python package comfortably with pip:
+
+```
+virtualenv --python python3 markenv
+source markenv/bin/activate
+pip3 install -e .
+```
+
+#### Install depend python package
+```
+pip3 freeze > requirements.txt
+```

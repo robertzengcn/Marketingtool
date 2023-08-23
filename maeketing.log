@@ -1,0 +1,66 @@
+[MainThread] - 2023-08-10 10:04:18,345 - Marketingtool.core - INFO - /path/to/video
+[MainThread] - 2023-08-10 10:05:16,252 - Marketingtool.core - INFO - /home/robertzeng/tmp/video.mp4
+[MainThread] - 2023-08-10 10:06:51,308 - Marketingtool.core - INFO - /home/robertzeng/tmp/video.mp4
+[MainThread] - 2023-08-10 10:09:16,436 - Marketingtool.core - INFO - /home/robertzeng/tmp/video.mp4
+[MainThread] - 2023-08-10 10:10:00,971 - Marketingtool.core - INFO - /home/robertzeng/tmp/video.mp4
+[MainThread] - 2023-08-10 10:10:40,890 - Marketingtool.core - INFO - /home/robertzeng/tmp/video.mp4
+[MainThread] - 2023-08-10 10:10:40,890 - py.warnings - WARNING - /home/robertzeng/project/toyproject/social_market/python/markenv/lib/python3.9/site-packages/oauth2client/_helpers.py:255: UserWarning: Cannot access /home/robertzeng/project/toyproject/social_market/python/markenv/bin/Marketingtool-oauth2.json: No such file or directory
+  warnings.warn(_MISSING_FILE_MESSAGE.format(filename))
+
+[MainThread] - 2023-08-10 10:27:34,060 - Marketingtool.core - INFO - /home/robertzeng/tmp/video.mp4
+[MainThread] - 2023-08-10 10:33:52,389 - Marketingtool.core - INFO - 97 - {/home/robertzeng/project/toyproject/social_market/python/Marketingtool/core.py:97}
+[MainThread] - 2023-08-10 10:44:35,084 - Marketingtool.modules.youtube - INFO - client_secrets.json - {/home/robertzeng/project/toyproject/social_market/python/Marketingtool/modules/youtube.py:76}
+[MainThread] - 2023-08-10 11:07:30,794 - py.warnings - WARNING - /home/robertzeng/project/toyproject/social_market/python/markenv/lib/python3.9/site-packages/oauth2client/_helpers.py:255: UserWarning: Cannot access /home/robertzeng/project/toyproject/social_market/python/markenv/bin/Marketingtool-oauth2.json: No such file or directory
+  warnings.warn(_MISSING_FILE_MESSAGE.format(filename))
+ - {/usr/lib/python3.9/warnings.py:109}
+[MainThread] - 2023-08-11 09:26:44,102 - py.warnings - WARNING - /home/robertzeng/project/toyproject/social_market/python/markenv/lib/python3.9/site-packages/oauth2client/_helpers.py:255: UserWarning: Cannot access /home/robertzeng/project/toyproject/social_market/python/markenv/bin/Marketingtool-oauth2.json: No such file or directory
+  warnings.warn(_MISSING_FILE_MESSAGE.format(filename))
+ - {/usr/lib/python3.9/warnings.py:109}
+[MainThread] - 2023-08-11 09:42:15,389 - py.warnings - WARNING - /home/robertzeng/project/toyproject/social_market/python/markenv/lib/python3.9/site-packages/oauth2client/_helpers.py:255: UserWarning: Cannot access /home/robertzeng/project/toyproject/social_market/python/markenv/bin/Marketingtool-oauth2.json: No such file or directory
+  warnings.warn(_MISSING_FILE_MESSAGE.format(filename))
+ - {/usr/lib/python3.9/warnings.py:109}
+[MainThread] - 2023-08-11 09:45:46,703 - py.warnings - WARNING - /home/robertzeng/project/toyproject/social_market/python/markenv/lib/python3.9/site-packages/oauth2client/_helpers.py:255: UserWarning: Cannot access /home/robertzeng/project/toyproject/social_market/python/markenv/bin/Marketingtool-oauth2.json: No such file or directory
+  warnings.warn(_MISSING_FILE_MESSAGE.format(filename))
+ - {/usr/lib/python3.9/warnings.py:109}
+[MainThread] - 2023-08-11 09:46:34,179 - py.warnings - WARNING - /home/robertzeng/project/toyproject/social_market/python/markenv/lib/python3.9/site-packages/oauth2client/_helpers.py:255: UserWarning: Cannot access /home/robertzeng/project/toyproject/social_market/python/markenv/bin/Marketingtool-oauth2.json: No such file or directory
+  warnings.warn(_MISSING_FILE_MESSAGE.format(filename))
+ - {/usr/lib/python3.9/warnings.py:109}
+[MainThread] - 2023-08-11 09:46:50,933 - py.warnings - WARNING - /home/robertzeng/project/toyproject/social_market/python/markenv/lib/python3.9/site-packages/oauth2client/_helpers.py:255: UserWarning: Cannot access /home/robertzeng/project/toyproject/social_market/python/markenv/bin/Marketingtool-oauth2.json: No such file or directory
+  warnings.warn(_MISSING_FILE_MESSAGE.format(filename))
+ - {/usr/lib/python3.9/warnings.py:109}
+[MainThread] - 2023-08-11 09:47:28,987 - py.warnings - WARNING - /home/robertzeng/project/toyproject/social_market/python/markenv/lib/python3.9/site-packages/oauth2client/_helpers.py:255: UserWarning: Cannot access /home/robertzeng/project/toyproject/social_market/python/markenv/bin/Marketingtool-oauth2.json: No such file or directory
+  warnings.warn(_MISSING_FILE_MESSAGE.format(filename))
+ - {/usr/lib/python3.9/warnings.py:109}
+[MainThread] - 2023-08-11 09:48:05,509 - py.warnings - WARNING - /home/robertzeng/project/toyproject/social_market/python/markenv/lib/python3.9/site-packages/oauth2client/_helpers.py:255: UserWarning: Cannot access /home/robertzeng/project/toyproject/social_market/python/markenv/bin/Marketingtool-oauth2.json: No such file or directory
+  warnings.warn(_MISSING_FILE_MESSAGE.format(filename))
+ - {/usr/lib/python3.9/warnings.py:109}
+[MainThread] - 2023-08-11 09:48:43,695 - py.warnings - WARNING - /home/robertzeng/project/toyproject/social_market/python/markenv/lib/python3.9/site-packages/oauth2client/_helpers.py:255: UserWarning: Cannot access /home/robertzeng/project/toyproject/social_market/python/markenv/bin/Marketingtool-oauth2.json: No such file or directory
+  warnings.warn(_MISSING_FILE_MESSAGE.format(filename))
+ - {/usr/lib/python3.9/warnings.py:109}
+[MainThread] - 2023-08-11 10:42:48,767 - py.warnings - WARNING - /home/robertzeng/project/toyproject/social_market/python/markenv/lib/python3.9/site-packages/oauth2client/_helpers.py:255: UserWarning: Cannot access /home/robertzeng/project/toyproject/social_market/python/markenv/bin/Marketingtool-oauth2.json: No such file or directory
+  warnings.warn(_MISSING_FILE_MESSAGE.format(filename))
+ - {/usr/lib/python3.9/warnings.py:109}
+[MainThread] - 2023-08-11 10:52:05,253 - py.warnings - WARNING - /home/robertzeng/project/toyproject/social_market/python/markenv/lib/python3.9/site-packages/oauth2client/_helpers.py:255: UserWarning: Cannot access /home/robertzeng/project/toyproject/social_market/python/markenv/bin/Marketingtool-oauth2.json: No such file or directory
+  warnings.warn(_MISSING_FILE_MESSAGE.format(filename))
+ - {/usr/lib/python3.9/warnings.py:109}
+[MainThread] - 2023-08-11 11:02:41,756 - py.warnings - WARNING - /home/robertzeng/project/toyproject/social_market/python/markenv/lib/python3.9/site-packages/oauth2client/_helpers.py:255: UserWarning: Cannot access /home/robertzeng/project/toyproject/social_market/python/markenv/bin/Marketingtool-oauth2.json: No such file or directory
+  warnings.warn(_MISSING_FILE_MESSAGE.format(filename))
+ - {/usr/lib/python3.9/warnings.py:109}
+[MainThread] - 2023-08-14 09:17:25,010 - py.warnings - WARNING - /home/robertzeng/project/toyproject/social_market/python/markenv/lib/python3.9/site-packages/oauth2client/_helpers.py:255: UserWarning: Cannot access /home/robertzeng/project/toyproject/social_market/python/markenv/bin/Marketingtool-oauth2.json: No such file or directory
+  warnings.warn(_MISSING_FILE_MESSAGE.format(filename))
+ - {/usr/lib/python3.9/warnings.py:109}
+[MainThread] - 2023-08-14 09:19:37,980 - py.warnings - WARNING - /home/robertzeng/project/toyproject/social_market/python/markenv/lib/python3.9/site-packages/oauth2client/_helpers.py:255: UserWarning: Cannot access /home/robertzeng/project/toyproject/social_market/python/markenv/bin/Marketingtool-oauth2.json: No such file or directory
+  warnings.warn(_MISSING_FILE_MESSAGE.format(filename))
+ - {/usr/lib/python3.9/warnings.py:109}
+[MainThread] - 2023-08-14 09:19:52,777 - py.warnings - WARNING - /home/robertzeng/project/toyproject/social_market/python/markenv/lib/python3.9/site-packages/oauth2client/_helpers.py:255: UserWarning: Cannot access /home/robertzeng/project/toyproject/social_market/python/markenv/bin/Marketingtool-oauth2.json: No such file or directory
+  warnings.warn(_MISSING_FILE_MESSAGE.format(filename))
+ - {/usr/lib/python3.9/warnings.py:109}
+[MainThread] - 2023-08-14 09:21:29,335 - py.warnings - WARNING - /home/robertzeng/project/toyproject/social_market/python/markenv/lib/python3.9/site-packages/oauth2client/_helpers.py:255: UserWarning: Cannot access /home/robertzeng/project/toyproject/social_market/python/markenv/bin/Marketingtool-oauth2.json: No such file or directory
+  warnings.warn(_MISSING_FILE_MESSAGE.format(filename))
+ - {/usr/lib/python3.9/warnings.py:109}
+[MainThread] - 2023-08-14 09:23:01,890 - py.warnings - WARNING - /home/robertzeng/project/toyproject/social_market/python/markenv/lib/python3.9/site-packages/oauth2client/_helpers.py:255: UserWarning: Cannot access /home/robertzeng/project/toyproject/social_market/python/markenv/bin/Marketingtool-oauth2.json: No such file or directory
+  warnings.warn(_MISSING_FILE_MESSAGE.format(filename))
+ - {/usr/lib/python3.9/warnings.py:109}
+[MainThread] - 2023-08-14 09:40:19,428 - py.warnings - WARNING - /home/robertzeng/project/toyproject/social_market/python/markenv/lib/python3.9/site-packages/oauth2client/_helpers.py:255: UserWarning: Cannot access /home/robertzeng/project/toyproject/social_market/python/markenv/bin/Marketingtool-oauth2.json: No such file or directory
+  warnings.warn(_MISSING_FILE_MESSAGE.format(filename))
+ - {/usr/lib/python3.9/warnings.py:109}
