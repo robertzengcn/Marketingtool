@@ -1,4 +1,4 @@
-aiohttp==3.8.1
+aiohttp==3.8.5
 aiosignal==1.2.0
 alabaster==0.7.12
 ansible==7.6.0
@@ -29,7 +29,6 @@ deep-translator==1.11.4
 distlib==0.3.4
 distro==1.5.0
 docutils==0.17.1
-Emailscrapy @ git+https://github.com/robertzengcn/emailscrapy.git@501632b3f3825cc1d65dfec9ddedcba6c08d622c
 executing==0.8.3
 fake-useragent==0.1.11
 ffmpeg-python==0.2.0
