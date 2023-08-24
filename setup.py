@@ -20,9 +20,15 @@ setup(name='Marketingtool',
       long_description_content_type="text/markdown",
       author='Robert Zeng',
       author_email='zengjianze@gmail.com',
+      url='https://github.com/robertzengcn/Marketingtool',
       py_modules=['usage'],
+      keywords = ['Marketingtool', 'video edit', 'Subtitle Translate'],
       packages=['Marketingtool'],
       entry_points={'console_scripts': ['Marketingtool = Marketingtool.core:main']},
       package_dir={'examples': 'examples'},
-      install_requires=requirements
+      install_requires=requirements,
+      classifiers=[
+          'License :: OSI Approved :: MIT License',
+          'Programming Language :: Python :: 3.9',
+      ]
 )

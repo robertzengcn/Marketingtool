@@ -100,7 +100,7 @@ def main(return_results=False, parse_cmd_line=True, config_from_dict=None,extern
         
         YoutubeModel=Youtube()
         # logger.info(97)
-        clientfilepath='/home/robertzeng/project/toyproject/social_market/python/Marketingtool/modules/client_secrets.json'
+        clientfilepath=None
         youtube = YoutubeModel.get_authenticated_service(clientfilepath)
         
         try:

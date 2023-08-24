@@ -1,2 +1,5 @@
 ./tmp
 marketing.log
+build
+dist
+pyvenv.cfg
