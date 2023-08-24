@@ -1,0 +1,3 @@
+[console_scripts]
+Marketingtool = Marketingtool.core:main
+

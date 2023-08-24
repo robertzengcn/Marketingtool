@@ -8,6 +8,12 @@ This package is a tool help you do follow marketing job:
 
 ### Install requirement
 This program require python 3.9 installed
+
+### How to install
+```
+pip install Marketingtool
+```
+
 ### How to use
 
 Transcribe the speech in video
