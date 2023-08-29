@@ -55,58 +55,58 @@ def main(return_results=False, parse_cmd_line=True, config_from_dict=None,extern
             raise WrongConfigurationError("target language is not specified")
         translatorModel=Translator()
         translatorModel.subtitle_translator(srtfile,targetlang,sourcelang)
-    elif action == 'insertVideo':
-        originvideo = config.get('inputfile', None)
-        if originvideo == None:
-            raise WrongConfigurationError("origin video is not specified")
-        advideo = config.get('insertvideo', None)
-        if advideo == None:
-            raise WrongConfigurationError("ad video is not specified")
+    # elif action == 'insertVideo':
+    #     originvideo = config.get('inputfile', None)
+    #     if originvideo == None:
+    #         raise WrongConfigurationError("origin video is not specified")
+    #     advideo = config.get('insertvideo', None)
+    #     if advideo == None:
+    #         raise WrongConfigurationError("ad video is not specified")
         
-        outputvideo = config.get('outputfile', None)
-        if outputvideo == None:
-            raise WrongConfigurationError("output video is not specified")
-        videoeditModel=Videoedit()
+    #     outputvideo = config.get('outputfile', None)
+    #     if outputvideo == None:
+    #         raise WrongConfigurationError("output video is not specified")
+    #     videoeditModel=Videoedit()
         
-        videoeditModel.insertVideo(originvideo,advideo,outputvideo)
-    elif action=='uploadyoutube':
-        videofile=config.get('inputfile', None)
+    #     videoeditModel.insertVideo(originvideo,advideo,outputvideo)
+    # elif action=='uploadyoutube':
+    #     videofile=config.get('inputfile', None)
         
-        if(videofile==None):
-            raise WrongConfigurationError("video file is not specified")
-        if not os.path.exists(videofile):
-            raise FileNotFoundError("video file not exists")
-        title=config.get('title', None)
-        if(title==None):
-            raise WrongConfigurationError("title is not specified")
-        description=config.get('description', None)
-        if(description==None):
-            raise WrongConfigurationError("description is not specified")
-        category=config.get('category', None)
-        if(category==None):
-            raise WrongConfigurationError("category is not specified")  
-        keywords=config.get('keywords', None)
-        if(keywords==None):
-            raise WrongConfigurationError("keywords is not specified")              
-        privacystatus=config.get('privacystatus', None)
-        if(privacystatus==None):
-            raise WrongConfigurationError("privacystatus is not specified")         
-        args=dict(file=videofile,title=title,description=description,category=category,
-            keywords=keywords,privacyStatus=privacystatus,logging_level='INFO'
-              )
-        namespace = Namespace()
-        for name in args:
-            setattr(namespace, name, args[name])
+    #     if(videofile==None):
+    #         raise WrongConfigurationError("video file is not specified")
+    #     if not os.path.exists(videofile):
+    #         raise FileNotFoundError("video file not exists")
+    #     title=config.get('title', None)
+    #     if(title==None):
+    #         raise WrongConfigurationError("title is not specified")
+    #     description=config.get('description', None)
+    #     if(description==None):
+    #         raise WrongConfigurationError("description is not specified")
+    #     category=config.get('category', None)
+    #     if(category==None):
+    #         raise WrongConfigurationError("category is not specified")  
+    #     keywords=config.get('keywords', None)
+    #     if(keywords==None):
+    #         raise WrongConfigurationError("keywords is not specified")              
+    #     privacystatus=config.get('privacystatus', None)
+    #     if(privacystatus==None):
+    #         raise WrongConfigurationError("privacystatus is not specified")         
+    #     args=dict(file=videofile,title=title,description=description,category=category,
+    #         keywords=keywords,privacyStatus=privacystatus,logging_level='INFO'
+    #           )
+    #     namespace = Namespace()
+    #     for name in args:
+    #         setattr(namespace, name, args[name])
         
-        YoutubeModel=Youtube()
-        # logger.info(97)
-        clientfilepath=None
-        youtube = YoutubeModel.get_authenticated_service(clientfilepath)
+    #     YoutubeModel=Youtube()
+    #     # logger.info(97)
+    #     clientfilepath=None
+    #     youtube = YoutubeModel.get_authenticated_service(clientfilepath)
         
-        try:
-            YoutubeModel.initialize_upload(youtube, namespace)
-        except HttpError as e:
-            print("An HTTP error %d occurred:\n%s" % (e.resp.status, e.content))
+    #     try:
+    #         YoutubeModel.initialize_upload(youtube, namespace)
+    #     except HttpError as e:
+    #         print("An HTTP error %d occurred:\n%s" % (e.resp.status, e.content))
     else:
         raise WrongConfigurationError("action is not supported")
 

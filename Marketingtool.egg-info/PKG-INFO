@@ -16,16 +16,22 @@ Description: # Marketing Tool
         
         ### Install requirement
         This program require python 3.9 installed
+        
+        ### How to install
+        ```
+        pip install Marketingtool
+        ```
+        
         ### How to use
         
         Transcribe the speech in video
         ```
-        Marketingtool --action transcribe -f videofilepath
+        Marketingtool --action transcribe -f /path/to/video -o /path/to/captions
         ```
         
         Insert Video into another video
         ```
-         Marketingtool -a insertVideo -f ~/path/to/video -o ~/result/video.mp4 --insert-video ~/insert/video.mp4
+         Marketingtool -a insertVideo -f /path/to/video -o ~/result/video.mp4 --insert-video /insert/video.mp4
         ```
         
         Translate subtitle files
@@ -37,15 +43,15 @@ Description: # Marketing Tool
         You can also install python package comfortably with pip:
         
         ```
-        python3 -m venv ./
-        source markenv/bin/activate
+        python3 -m venv path/to/project
+        cd path/to/project
+        source ./bin/activate
         pip3 install -e .
         ```
         
         #### Update depend python package for requirement.txt
         ```
-        pip3 install pipreqs
-        pipreqs ./ --force
+        pip3 freeze > requirements.txt
         ```
         
         #### How to test

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import codecs
 from deep_translator import GoogleTranslator,BaiduTranslator
-
+# from googletrans import Translator as GoogleTrans
 GOOGLE_TRANSLATION_LIMIT = 5000
 class Translator():
     def __init__(self)-> None:
@@ -28,7 +28,7 @@ class Translator():
             return temp_translated
         else:
             return [translated_sub+"\n"]              
-
+    # translator file to srt file
     def subtitle_translator(self, file_name, target_language,source_language='auto',translator_tool='google')->str:
         """
         this function translate a subtitle file from original language to desired  language
@@ -55,18 +55,19 @@ class Translator():
         durations = []
         contents = []
         translate_limit = 3000
-        # text_translatable = ''
+        text_translatable = ''
         if translator_tool=='google':
             translate_limit = 5000
-            if(target_language=='zh'):
-                target_language = 'zh-CN'
-            if(source_language=='zh'):
-                source_language = 'zh-CN'    
-            translator =GoogleTranslator(source=source_language, target=target_language)
-        elif translator_tool=='baidu':
-            translator =BaiduTranslator(source=source_language, target=target_language)
-        else:
-            raise Exception("Translator not supported")
+        #     if(target_language=='zh'):
+        #         target_language = 'zh-CN'
+        #     if(source_language=='zh'):
+        #         source_language = 'zh-CN'    
+        #     # translator =GoogleTranslator(source=source_language, target=target_language)
+        #         translator = Translator()
+        # elif translator_tool=='baidu':
+        #     translator =BaiduTranslator(source=source_language, target=target_language)
+        # else:
+        #     raise Exception("Translator not supported")
         number_of_translatable_content = len(content_list)
         # time_info = ''
         text_info = ''        
@@ -101,16 +102,17 @@ class Translator():
                 prepared_text+=textlist[i]
                 # Prepare segmented translation
                 if len(prepared_text) > translate_limit-100:
-                   translated_sub =translator.translate(prepared_text) 
+                   
+                   translated_sub =self.transText(prepared_text,source_language,target_language,translator_tool) 
                    cres=self.handletxtend(translated_sub)
                    contents += cres 
                    prepared_text=''
                 else:
-                   translated_sub =translator.translate(prepared_text) 
+                   translated_sub =self.transText(prepared_text,source_language,target_language,translator_tool) 
                    cres=self.handletxtend(translated_sub)
                    contents += cres 
         else:
-            translated_sub =translator.translate(text_info)  
+            translated_sub =self.transText(text_info,source_language,target_language,translator_tool)  
             cres=self.handletxtend(translated_sub)
             contents += cres  
             # list doesn't have the value at number_of_translatable_content index
@@ -179,4 +181,22 @@ class Translator():
             baseName = file_name[0: last_dot]
             ext = file_name[last_dot: len(file_name)]
             new_file_name = baseName + str(name_sep) + ext
-        return new_file_name  
+        return new_file_name 
+    # translate text
+    def transText(self,text,source_language,target_language,translator_tool='google')->str:
+        if translator_tool=='google':         
+            if(target_language=='zh'or target_language=='chinese'):
+                target_language = 'zh-CN'
+            if(source_language=='zh' or target_language=='chinese'):
+                source_language = 'zh-CN'    
+            translator =GoogleTranslator(source=source_language, target=target_language)
+            # translator = GoogleTrans()
+            translator.translate(text, dest=target_language)
+            translated_sub =translator.translate(text)  
+        elif translator_tool=='baidu':
+            translator =BaiduTranslator(source=source_language, target=target_language)
+            translated_sub =translator.translate(text)
+        else:
+            raise Exception("Translator not supported")
+        
+        return translated_sub

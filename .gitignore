@@ -4,3 +4,7 @@ build
 dist
 pyvenv.cfg
 maeketing.log
+lib64
+lib/*
+*.pyc
+lib

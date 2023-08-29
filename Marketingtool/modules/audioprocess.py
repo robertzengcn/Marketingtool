@@ -13,6 +13,8 @@ class Audioprocess():
     def transcribeSpeech(self,videopath:str,outputpath:str,filetype:str="srt",modelval:str="base")->Transcrifiletype:
         if os.path.exists(videopath)!=True:
             raise FileNotFoundError("File not found")
+        if os.path.isdir(outputpath)!=True:
+            raise Exception("output path is not a directory")
         typelist = ["srt","vtt","json","txt"]
         if filetype not in typelist:
             raise ValueError("File type not supported")
