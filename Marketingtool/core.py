@@ -5,10 +5,11 @@ from Marketingtool.config import get_config
 from Marketingtool.modules.audioprocess import Audioprocess
 from Marketingtool.modules.translator import Translator
 from Marketingtool.modules.videoedit import Videoedit
-from Marketingtool.modules.youtube import Youtube
-from apiclient.errors import HttpError
+# from Marketingtool.modules.youtube import Youtube
+# from apiclient.errors import HttpError
 from Marketingtool.log import setup_logger
-from argparse import Namespace
+# from argparse import Namespace
+import json
 
 logger = logging.getLogger(__name__)
 
@@ -47,28 +48,40 @@ def main(return_results=False, parse_cmd_line=True, config_from_dict=None,extern
         srtfile = config.get('inputfile', None)
         if srtfile == None:
             raise WrongConfigurationError("srt file is not specified")
+        outputfile= config.get('outputfile', None)
         sourcelang = config.get('sourcelang', None)
         if sourcelang == None:
             raise WrongConfigurationError("source language is not specified")
         targetlang = config.get('targetlang', None)        
         if targetlang == None:
             raise WrongConfigurationError("target language is not specified")
+        proxiesstr = config.get('proxies', None)
+        proxies=None
+        if proxiesstr != None:
+        #    proxies_example = {
+        #     "https": "34.195.196.27:8080",
+        #     "http": "34.195.196.27:8080"
+        #     }
+           proxies=json.loads(proxiesstr)
+        transtool = config.get('transtool') 
+        if transtool == None:
+            raise WrongConfigurationError("transtool is not specified")   
         translatorModel=Translator()
-        translatorModel.subtitle_translator(srtfile,targetlang,sourcelang)
-    # elif action == 'insertVideo':
-    #     originvideo = config.get('inputfile', None)
-    #     if originvideo == None:
-    #         raise WrongConfigurationError("origin video is not specified")
-    #     advideo = config.get('insertvideo', None)
-    #     if advideo == None:
-    #         raise WrongConfigurationError("ad video is not specified")
+        translatorModel.subtitle_translator(srtfile,targetlang,sourcelang,transtool,proxies,outputfile)
+    elif action == 'insertVideo':
+        originvideo = config.get('inputfile', None)
+        if originvideo == None:
+            raise WrongConfigurationError("origin video is not specified")
+        advideo = config.get('insertvideo', None)
+        if advideo == None:
+            raise WrongConfigurationError("ad video is not specified")
         
-    #     outputvideo = config.get('outputfile', None)
-    #     if outputvideo == None:
-    #         raise WrongConfigurationError("output video is not specified")
-    #     videoeditModel=Videoedit()
+        outputvideo = config.get('outputfile', None)
+        if outputvideo == None:
+            raise WrongConfigurationError("output video is not specified")
+        videoeditModel=Videoedit()
         
-    #     videoeditModel.insertVideo(originvideo,advideo,outputvideo)
+        videoeditModel.insertVideo(originvideo,advideo,outputvideo)
     # elif action=='uploadyoutube':
     #     videofile=config.get('inputfile', None)
         

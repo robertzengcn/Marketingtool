@@ -36,7 +36,7 @@ Description: # Marketing Tool
         
         Translate subtitle files
         ```
-        Marketingtool --action translate -f /path/to/subtitle/file --source-lang chinese --targetlang english
+        Marketingtool --action translate -f /path/to/subtitle/file --source-lang zh-CN --target-lang en
         ```
         
         ### How to develop

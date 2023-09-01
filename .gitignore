@@ -8,3 +8,6 @@ lib64
 lib/*
 *.pyc
 lib
+*/__pycache__/*
+__pycache__/*
+

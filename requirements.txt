@@ -69,7 +69,6 @@ lit==16.0.6
 llvmlite==0.40.1
 lxml==4.9.3
 markdown-it-py==3.0.0
--e git+git@github.com:robertzengcn/Marketingtool.git@5d3b98ae20b9cee1ec8264660e9a3f014b345442#egg=Marketingtool
 MarkupSafe==2.1.3
 matplotlib-inline==0.1.6
 mdurl==0.1.2

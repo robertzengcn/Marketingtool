@@ -41,20 +41,24 @@ def get_command_line(only_print_help=False):
                         help='the targetlang for translate')  
     parser.add_argument('--insert-video', type=str, dest='insertvideo', action='store',
                         help='the ad video to insert')   
-
+    parser.add_argument('--proxies', type=str, dest='proxies', action='store',
+                        help='proxies for the program')  
+    parser.add_argument('--transtool', type=str, dest='transtool', choices=['google','baidu','mymemory','linguee'],default='mymemory',action='store',
+                        help='transtool for the program') 
 #     parser.add_argument('--browser-mode', choices=['normal', 'headless'], default='normal',
 #                         help='In which mode the browser is started. Valid values = (normal, headless)')
-    parser.add_argument('--title', type=str, dest='title', action='store',
-                        help='Video title') 
-    parser.add_argument('--description', type=str, dest='description', action='store',
-                        help='Video description') 
-    parser.add_argument('--category', type=str, dest='category', action='store',default="22",
-                        help="Numeric video category. " +
-      "See https://developers.google.com/youtube/v3/docs/videoCategories/list") 
-    parser.add_argument("--keywords", help="Video keywords, comma separated",
-    default="")
-    parser.add_argument("--privacyStatus", dest='privacystatus', choices=VALID_PRIVACY_STATUSES,
-    default=VALID_PRIVACY_STATUSES[0], help="Video privacy status.")
+    # parser.add_argument('--title', type=str, dest='title', action='store',
+    #                     help='Video title') 
+    # parser.add_argument('--description', type=str, dest='description', action='store',
+    #                     help='Video description') 
+    # parser.add_argument('--category', type=str, dest='category', action='store',default="22",
+    #                     help="Numeric video category. " +
+    #   "See https://developers.google.com/youtube/v3/docs/videoCategories/list") 
+    # parser.add_argument("--keywords", help="Video keywords, comma separated",
+    # default="")
+    # parser.add_argument("--privacyStatus", dest='privacystatus', choices=VALID_PRIVACY_STATUSES,
+    # default=VALID_PRIVACY_STATUSES[0], help="Video privacy status.")
+    
 
 
 #     keyword_group = parser.add_mutually_exclusive_group()

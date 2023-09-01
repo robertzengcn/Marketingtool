@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 import codecs
-from deep_translator import GoogleTranslator,BaiduTranslator
+from deep_translator import GoogleTranslator,BaiduTranslator,MyMemoryTranslator,LingueeTranslator
 # from googletrans import Translator as GoogleTrans
-GOOGLE_TRANSLATION_LIMIT = 5000
+# GOOGLE_TRANSLATION_LIMIT = 5000
 class Translator():
     def __init__(self)-> None:
         pass 
@@ -21,15 +21,18 @@ class Translator():
     def handletxtend(self, translated_sub:str)-> list[str]:
         if "\r\n" in translated_sub:
             temp_translated = translated_sub.split("\n\r")
+            for i, item in enumerate(temp_translated):
+                temp_translated[i] = item + "\r\n"
             return temp_translated
-        elif "\n" in translated_sub:
+        elif "\n" in translated_sub:     
             temp_translated = translated_sub.split("\n")
-            temp_translated[-1] = temp_translated[-1] + "\n"
+            for i, item in enumerate(temp_translated):
+                temp_translated[i] = item + "\n"
             return temp_translated
         else:
             return [translated_sub+"\n"]              
     # translator file to srt file
-    def subtitle_translator(self, file_name, target_language,source_language='auto',translator_tool='google')->str:
+    def subtitle_translator(self, file_name, target_language,source_language='auto',translator_tool='google',proxy=None,outfile=None)->str:
         """
         this function translate a subtitle file from original language to desired  language
         
@@ -50,24 +53,14 @@ class Translator():
             
             3
         """
-        fw = self.write_file(self, file_name, target_language, source_language)
+        # fw = self.write_file(self, file_name, target_language, source_language)
         content_list = self.read_file_as_list(file_name)
         durations = []
         contents = []
-        translate_limit = 3000
-        text_translatable = ''
+        translate_limit = 500
+        # text_translatable = ''
         if translator_tool=='google':
             translate_limit = 5000
-        #     if(target_language=='zh'):
-        #         target_language = 'zh-CN'
-        #     if(source_language=='zh'):
-        #         source_language = 'zh-CN'    
-        #     # translator =GoogleTranslator(source=source_language, target=target_language)
-        #         translator = Translator()
-        # elif translator_tool=='baidu':
-        #     translator =BaiduTranslator(source=source_language, target=target_language)
-        # else:
-        #     raise Exception("Translator not supported")
         number_of_translatable_content = len(content_list)
         # time_info = ''
         text_info = ''        
@@ -79,8 +72,6 @@ class Translator():
             if "\n" in content_list[c]:
                 lines = content_list[c].split("\n")
 
-
-           
             for i in range(len(lines)):
                 time_info=''
                 if lines[i].rstrip().isdigit() and "-->" in lines[i + 1]:
@@ -91,7 +82,6 @@ class Translator():
                     continue
                 else:
                     text_info += lines[i] + "\n" 
-        
         if len(text_info) <= 0:
             raise Exception("Subtitle file is not valid")
         elif len(text_info) > translate_limit: 
@@ -99,20 +89,22 @@ class Translator():
             textlist=text_info.split("\n")     
             prepared_text = ''
             for i in range(len(textlist)):
-                prepared_text+=textlist[i]
+                prepared_text+=textlist[i]+"\n"
                 # Prepare segmented translation
-                if len(prepared_text) > translate_limit-100:
+                if len(prepared_text) > translate_limit-100 or i == len(textlist)-1:
                    
-                   translated_sub =self.transText(prepared_text,source_language,target_language,translator_tool) 
+                   translated_sub =self.transText(prepared_text,source_language,target_language,translator_tool,proxy) 
                    cres=self.handletxtend(translated_sub)
-                   contents += cres 
+                   contents += cres
                    prepared_text=''
-                else:
-                   translated_sub =self.transText(prepared_text,source_language,target_language,translator_tool) 
-                   cres=self.handletxtend(translated_sub)
-                   contents += cres 
+                # else:
+                #    translated_sub =self.transText(prepared_text,source_language,target_language,translator_tool,proxy) 
+                #    cres=self.handletxtend(translated_sub)
+                #    contents += cres 
+                #    prepared_text=''
         else:
-            translated_sub =self.transText(text_info,source_language,target_language,translator_tool)  
+            
+            translated_sub =self.transText(text_info,source_language,target_language,translator_tool,proxy)  
             cres=self.handletxtend(translated_sub)
             contents += cres  
             # list doesn't have the value at number_of_translatable_content index
@@ -146,11 +138,14 @@ class Translator():
         # for ic in range(len(contents)):
         #     print(contents[ic])   
         # print(len(contents)) 
-        # print(len(durations))   
+        # print(len(durations)) 
+        if outfile==None:
+            outfile=self.format_file_name(file_name, target_language, source_language)
+        fw = self.write_file(self, outfile)  
         for d, c in zip(durations, contents):     
-            print(d)
+            # print(d)
             fw.write(d)
-            print(c)
+            # print(c)
             fw.write(c)
             # print(d + c)
         return self.format_file_name(file_name, target_language, source_language)
@@ -160,10 +155,9 @@ class Translator():
         # print(info)
         # print("New file name: ", self.format_file_name(file_name, target_language, source_language))
     @staticmethod
-    def write_file(self, file_name, target_language, source_language):
-        fn = self.format_file_name(file_name, target_language, source_language)
-        fw = open(fn, 'w')
-
+    def write_file(self, file_name):    
+        # fn = self.format_file_name(file_name, target_language, source_language)
+        fw = open(file_name, 'w')
         return fw  
     @staticmethod
     def format_file_name(file_name, target_language, source_language):
@@ -181,22 +175,29 @@ class Translator():
             baseName = file_name[0: last_dot]
             ext = file_name[last_dot: len(file_name)]
             new_file_name = baseName + str(name_sep) + ext
+        print(new_file_name)
         return new_file_name 
     # translate text
-    def transText(self,text,source_language,target_language,translator_tool='google')->str:
+    def transText(self,text:str,source_language:str,target_language:str,translator_tool:str='google',proxy=None)->str:
         if translator_tool=='google':         
             if(target_language=='zh'or target_language=='chinese'):
                 target_language = 'zh-CN'
-            if(source_language=='zh' or target_language=='chinese'):
-                source_language = 'zh-CN'    
-            translator =GoogleTranslator(source=source_language, target=target_language)
+            # if(source_language=='zh' or target_language=='chinese'):
+            #     source_language = 'zh-CN'    
+            translator =GoogleTranslator(source='auto', target=target_language)
             # translator = GoogleTrans()
-            translator.translate(text, dest=target_language)
+            translator.translate(text, dest=target_language,proxies=proxy)
             translated_sub =translator.translate(text)  
         elif translator_tool=='baidu':
-            translator =BaiduTranslator(source=source_language, target=target_language)
+            translator =BaiduTranslator(source=source_language, target=target_language,proxies=proxy)
             translated_sub =translator.translate(text)
+        elif translator_tool=='mymemory':
+            if target_language.lower()=='en' :
+                target_language='en-US'
+            translated_sub = MyMemoryTranslator(source=source_language, target=target_language).translate(text)
+        elif translator_tool=='linguee':
+            translated_sub = LingueeTranslator(source=source_language, target=target_language).translate(text)
         else:
             raise Exception("Translator not supported")
-        
+        print(translated_sub)
         return translated_sub
