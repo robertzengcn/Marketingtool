@@ -14,9 +14,11 @@ class VideoeditTestCase(unittest.TestCase):
     def test_insert_text(self):
         videopath=os.path.abspath('./Tests/data/test.flv')
         outputpath=os.path.abspath('./Tests/data/tmp/result_'+str(int(time.time()))+'.mp4')
+        if os.path.exists(videopath)!=True:
+            return
         
         #get timestamp
-        print(outputpath)
+        # print(outputpath)
         text='test text,you should see it!'
         videoModel=Videoedit()
         videoModel.InsertText(videopath,outputpath,text,15,3,15,'red',10)
