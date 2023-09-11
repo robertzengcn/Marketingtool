@@ -25,7 +25,7 @@ setup(name='Marketingtool',
       keywords = ['Marketingtool', 'video edit', 'Subtitle Translate'],
       packages=['Marketingtool'],
       entry_points={'console_scripts': ['Marketingtool = Marketingtool.core:main']},
-      package_dir={'examples': 'examples'},
+    #   package_dir={'examples': 'examples'},
       install_requires=requirements,
       classifiers=[
           'License :: OSI Approved :: MIT License',
