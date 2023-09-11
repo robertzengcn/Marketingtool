@@ -3,23 +3,23 @@
 import sys
 from pathlib import Path
 
-import imageio
+import imageio.v2 as imageio
 import numpy as np
 from scipy.ndimage import gaussian_filter
 
 class get_watermark():
     def __init__(self):
         pass
-    def normalize(x):
+    def normalize(self,x):
         _min = np.min(x)
         _max = np.max(x)
         return (x - _min) / (_max - _min)
-    def get_watermarks(image_path:str)->str:
+    def get_watermarks(self,image_path:str)->str:
         """
         get watermark from image
         """
         buff = []
-        for p in image_path.glob("output_*.png"):
+        for p in Path(image_path).glob("output_*.png"):
             buff.append(imageio.imread(p))
         images = np.array(buff)
 
@@ -32,9 +32,9 @@ class get_watermark():
         # Filter at a hand picked threshold
         threshold = 10
         salient = ((mean_dx > threshold) | (mean_dy > threshold)).astype(float)
-        salient = normalize(gaussian_filter(salient, sigma=3))
+        salient = self.normalize(gaussian_filter(salient, sigma=3))
         mask = ((salient > 0.2) * 255).astype(np.uint8)
 
         # Saved the computed mask
-        imageio.imsave(image_path / "mask.png", mask)
-        return image_path / "mask.png"
+        imageio.imsave(image_path + "/mask.png", mask)
+        return image_path + "/mask.png"

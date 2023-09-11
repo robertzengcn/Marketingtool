@@ -8,6 +8,7 @@ from Marketingtool.modules.videoedit import Videoedit
 # from Marketingtool.modules.youtube import Youtube
 # from apiclient.errors import HttpError
 from Marketingtool.log import setup_logger
+from Marketingtool.modules.watermark import Watermark
 # from argparse import Namespace
 import json
 
@@ -82,6 +83,32 @@ def main(return_results=False, parse_cmd_line=True, config_from_dict=None,extern
         videoeditModel=Videoedit()
         
         videoeditModel.insertVideo(originvideo,advideo,outputvideo)
+    elif action == 'removeWatermark':
+        originvideo = config.get('inputfile', None)
+        if originvideo == None:
+            raise WrongConfigurationError("origin video is not specified") 
+        outputpath = config.get('outputfile', None)
+        if outputpath == None:
+            raise WrongConfigurationError("output path is not specified")
+        videoModel=Watermark()
+        videoModel.remove_watermark(originvideo,outputpath,50)       
+    elif action == 'inserttextinvideo':
+        originvideo = config.get('inputfile', None)
+        if originvideo == None:
+            raise WrongConfigurationError("origin video is not specified") 
+        inserttext = config.get('inserttextpath', None) 
+        if inserttext == None:
+            raise WrongConfigurationError("insert text is not specified")  
+        outputpath = config.get('outputfile', None)
+        if outputpath == None:
+            raise WrongConfigurationError("output path is not specified")
+        step= config.get('inserttextstep', 15)
+        num= config.get('inserttextnum', 3)
+        frontsize= config.get('inserttextfrontsize', 15)
+        inserttextcolor= config.get('inserttextcolor', "red")
+        duration=config.get('inserttextduration', 10)
+        videoModel=Videoedit()
+        videoModel.InsertTextfromfile(originvideo,outputpath,inserttext,step,num,frontsize,inserttextcolor,duration)     
     # elif action=='uploadyoutube':
     #     videofile=config.get('inputfile', None)
         

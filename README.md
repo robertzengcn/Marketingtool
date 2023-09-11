@@ -4,7 +4,8 @@ This package is a tool help you do follow marketing job:
 1. Transcribe the speech in video
 2. Insert a video into antho video
 3. Translate subtitle files
-4. Insert text into video (todo)
+4. Insert text into video
+5. Remove water mark from video
 
 ### Install requirement
 This program require python 3.9 installed
@@ -31,6 +32,16 @@ Translate subtitle files
 Marketingtool --action translate -f /path/to/subtitle/file --source-lang zh-CN --target-lang en
 ```
 
+Remove watermark from video
+```
+Marketingtool --action removeWatermark -f /path/to/video -o /path/to/output
+```
+
+Insert text into video
+```
+Marketingtool --action inserttextinvideo -f ./path/to/video --insert-text-path ./path/to/text.txt --insert-text-step 50 --insert-text-num 30 --insert-text-frontsize 20 --insert-text-color green --insert-text-duration 15 -o ./path/to/result
+```
+
 ### How to develop
 You can also install python package comfortably with pip:
 
@@ -50,4 +61,8 @@ pip3 freeze > requirements.txt
 test edit movie function
 ```
 python3 -m unittest Tests.videoedit_tests.VideoeditTestCase.test_insert_text
+```
+test remove water mark
+```
+python3 -m unittest Tests.watermark_tests.WatermarkTestCase.test_remove_watermark
 ```

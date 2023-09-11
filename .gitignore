@@ -10,4 +10,7 @@ lib/*
 lib
 */__pycache__/*
 __pycache__/*
+bin
+bin/*
+lib64
 

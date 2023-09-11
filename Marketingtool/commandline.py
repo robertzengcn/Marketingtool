@@ -25,7 +25,7 @@ def get_command_line(only_print_help=False):
     #                          'second if you have the necessary number of proxies available. ',
     #                     choices=('http', 'selenium', 'http-async'))
 
-    parser.add_argument('-a', '--action', type=str, choices=['transcribe','translate','insertVideo'], default='transcribe',
+    parser.add_argument('-a', '--action', type=str, choices=['transcribe','translate','insertVideo','removeWatermark','inserttextinvideo'], default='transcribe',
                         help='The action for the software to do. Valid values = (transcribe)',required=True)
 
     parser.add_argument('-f','--input-file', type=str, dest='inputfile', action='store',
@@ -45,6 +45,20 @@ def get_command_line(only_print_help=False):
                         help='proxies for the program')  
     parser.add_argument('--transtool', type=str, dest='transtool', choices=['google','baidu','mymemory','linguee'],default='mymemory',action='store',
                         help='transtool for the program') 
+    parser.add_argument('--insert-text-path', type=str, dest='inserttextpath', action='store',
+                        help='the text file path to be inserted into video')
+    # addition argparse for insert into video
+    parser.add_argument('--insert-text-step', type=int, dest='inserttextstep', action='store',
+                        help='the interval for text to be inserted into video',default=15)
+    parser.add_argument('--insert-text-num', type=int, dest='inserttextnum', action='store',
+                        help='the number for text to be inserted into video',default=15) 
+    parser.add_argument('--insert-text-frontsize', type=int, dest='inserttextfrontsize', action='store',
+                        help='the number for text to be inserted into video',default=15)
+    parser.add_argument('--insert-text-color', type=str, dest='inserttextcolor', action='store',
+                        help='the color for text to be inserted into video',default="black")
+    parser.add_argument('--insert-text-duration', type=int, dest='inserttextduration', action='store',
+                        help='the duration time for text to be inserted into video',default="10")      
+            
 #     parser.add_argument('--browser-mode', choices=['normal', 'headless'], default='normal',
 #                         help='In which mode the browser is started. Valid values = (normal, headless)')
     # parser.add_argument('--title', type=str, dest='title', action='store',
