@@ -14,7 +14,7 @@ class WatermarkTestCase(unittest.TestCase):
     def test_remove_watermark(self):
         videopath=os.path.abspath('./Tests/data/test_watermark.flv')
         outputpath=os.path.abspath('./Tests/data/tmp/result_'+str(int(time.time()))+'.mp4')
-        if os.path.exists(videopath)!=True:
+        if os.path.exists(videopath) is not True:
             return
         
         #get timestamp
