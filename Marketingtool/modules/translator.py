@@ -139,7 +139,7 @@ class Translator():
         #     print(contents[ic])   
         # print(len(contents)) 
         # print(len(durations)) 
-        if outfile==None:
+        if outfile is None:
             outfile=self.format_file_name(file_name, target_language, source_language)
         fw = self.write_file(self, outfile)  
         for d, c in zip(durations, contents):     

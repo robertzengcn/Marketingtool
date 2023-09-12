@@ -37,70 +37,70 @@ def main(return_results=False, parse_cmd_line=True, config_from_dict=None,extern
     
     if action == 'transcribe':
         audiofile = config.get('inputfile', None)
-        if audiofile == None:
+        if audiofile is None:
             raise WrongConfigurationError("audio file is not specified")
         outputfile = config.get('outputfile', None)
-        if outputfile == None:
+        if outputfile is None:
             raise WrongConfigurationError("output file is not specified")
         audioprocess = Audioprocess()
         print(audiofile)
         audioprocess.transcribeSpeech(audiofile,outputfile,"srt","small") 
     elif action == 'translate':
         srtfile = config.get('inputfile', None)
-        if srtfile == None:
+        if srtfile is None:
             raise WrongConfigurationError("srt file is not specified")
         outputfile= config.get('outputfile', None)
         sourcelang = config.get('sourcelang', None)
-        if sourcelang == None:
+        if sourcelang is None:
             raise WrongConfigurationError("source language is not specified")
         targetlang = config.get('targetlang', None)        
-        if targetlang == None:
+        if targetlang is None:
             raise WrongConfigurationError("target language is not specified")
         proxiesstr = config.get('proxies', None)
         proxies=None
-        if proxiesstr != None:
+        if proxiesstr is not None:
         #    proxies_example = {
         #     "https": "34.195.196.27:8080",
         #     "http": "34.195.196.27:8080"
         #     }
            proxies=json.loads(proxiesstr)
         transtool = config.get('transtool') 
-        if transtool == None:
+        if transtool is None:
             raise WrongConfigurationError("transtool is not specified")   
         translatorModel=Translator()
         translatorModel.subtitle_translator(srtfile,targetlang,sourcelang,transtool,proxies,outputfile)
     elif action == 'insertVideo':
         originvideo = config.get('inputfile', None)
-        if originvideo == None:
+        if originvideo is None:
             raise WrongConfigurationError("origin video is not specified")
         advideo = config.get('insertvideo', None)
-        if advideo == None:
+        if advideo is None:
             raise WrongConfigurationError("ad video is not specified")
         
         outputvideo = config.get('outputfile', None)
-        if outputvideo == None:
+        if outputvideo is None:
             raise WrongConfigurationError("output video is not specified")
         videoeditModel=Videoedit()
         
         videoeditModel.insertVideo(originvideo,advideo,outputvideo)
     elif action == 'removeWatermark':
         originvideo = config.get('inputfile', None)
-        if originvideo == None:
+        if originvideo is None:
             raise WrongConfigurationError("origin video is not specified") 
         outputpath = config.get('outputfile', None)
-        if outputpath == None:
+        if outputpath is None:
             raise WrongConfigurationError("output path is not specified")
         videoModel=Watermark()
         videoModel.remove_watermark(originvideo,outputpath,50)       
     elif action == 'inserttextinvideo':
         originvideo = config.get('inputfile', None)
-        if originvideo == None:
+        if originvideo is None:
             raise WrongConfigurationError("origin video is not specified") 
         inserttext = config.get('inserttextpath', None) 
-        if inserttext == None:
+        if inserttext is None:
             raise WrongConfigurationError("insert text is not specified")  
         outputpath = config.get('outputfile', None)
-        if outputpath == None:
+        if outputpath is None:
             raise WrongConfigurationError("output path is not specified")
         step= config.get('inserttextstep', 15)
         num= config.get('inserttextnum', 3)

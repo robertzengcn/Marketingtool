@@ -32,7 +32,7 @@ def setup_logger(level=logging.INFO,
         sh = logging.StreamHandler(stream=sys.stderr)
         sh.setFormatter(formatter)
         logger.addHandler(sh)
-        if logfile!=None:
+        if logfile is not None:
             fh = logging.FileHandler(logfile)
             fh.setFormatter(formatter)
             logger.addHandler(fh)

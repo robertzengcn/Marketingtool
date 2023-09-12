@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import sys
+# import sys
 from pathlib import Path
 
 import imageio.v2 as imageio

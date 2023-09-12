@@ -17,13 +17,13 @@ class Watermark():
         """
         remove watermark from video
         """
-        if os.path.exists(video_path)!=True:
+        if os.path.exists(video_path) is not True:
             raise FileNotFoundError("File not found")        
         tmpdir =self.getframe(video_path,max_frames)
         getWaterMark=get_watermark()
         image_path=getWaterMark.get_watermarks(tmpdir)
         logger.info(image_path)
-        if image_path==None:
+        if image_path is None:
             raise Exception("watermark not generate success")
         # start to remove watermark
         removecmd="ffmpeg -hide_banner -loglevel warning -y -stats -i "+video_path+" -acodec copy -vf \"removelogo="+image_path+"\" "+output_path+""

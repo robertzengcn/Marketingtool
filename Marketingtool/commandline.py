@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import argparse
-from Marketingtool.version import __version__
+# from Marketingtool.version import __version__
 
 VALID_PRIVACY_STATUSES = ("public", "private", "unlisted")
 

@@ -9,9 +9,9 @@ class Videoedit():
         """
         insert an video into another video
         """
-        if os.path.exists(origin)!=True:
+        if os.path.exists(origin) is not True:
             raise FileNotFoundError("origin video File not found")
-        if os.path.exists(inVideo)!=True:
+        if os.path.exists(inVideo) is True:
             raise FileNotFoundError("insert video File not found")
         splist=self.splitVideo(origin,2)
         clip1=splist[0].resize((1280, 720))
@@ -77,6 +77,6 @@ class Videoedit():
         text=None
         with io.open(textpath,'r',encoding='utf8') as f:
             text = f.read()
-        if text==None:
+        if text is None:
             raise Exception("text file is empty")
         return self.InsertText(videopath, outputpath, text, step, insertNum, fronsize, frontcolor, durations)     
