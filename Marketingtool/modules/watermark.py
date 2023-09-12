@@ -33,7 +33,9 @@ class Watermark():
         """
         get frame from video
         """
-        getframe="ffprobe -hide_banner -loglevel warning -select_streams v -skip_frame nokey -show_frames -show_entries frame=pkt_dts_time "+video_path+" | grep \"pkt_dts_time=\" | xargs shuf -n "+str(max_frames)+" -e | awk -F  \"=\" '{print $2}'"
+        getframe=("ffprobe -hide_banner -loglevel warning -select_streams v"
+        "-skip_frame nokey -show_frames -show_entries" 
+        "frame=pkt_dts_time "+video_path+" | grep \"pkt_dts_time=\" | xargs shuf -n "+str(max_frames)+" -e | awk -F  \"=\" '{print $2}'")
         keyframes_time=self.cmd(getframe)
         tmpdir = tempfile.mkdtemp()
         logger.info("Extracting frames (up to: "+str(max_frames)+")... to the tmp path:"+tmpdir)
