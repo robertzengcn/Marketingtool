@@ -18,7 +18,8 @@ insertvideo=''
 log_level = 'INFO'
 
 # Log format string
-log_format = '[%(threadName)s] - %(asctime)s - %(name)s - %(levelname)s - %(message)s - {%(pathname)s:%(lineno)d}'
+log_format = '[%(threadName)s] - %(asctime)s - %(name)s ' \
+    '- %(levelname)s - %(message)s - {%(pathname)s:%(lineno)d}'
 
 # Logfile
 log_file = 'maeketing.log'
