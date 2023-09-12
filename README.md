@@ -60,9 +60,9 @@ pip3 freeze > requirements.txt
 #### How to test
 test edit movie function
 ```
-python3 -m unittest Tests.videoedit_tests.VideoeditTestCase.test_insert_text
+python3 -m unittest Tests.test_videoedit.VideoeditTestCase.test_insert_text
 ```
 test remove water mark
 ```
-python3 -m unittest Tests.watermark_tests.WatermarkTestCase.test_remove_watermark
+python3 -m unittest Tests.test_watermark.WatermarkTestCase.test_remove_watermark
 ```
