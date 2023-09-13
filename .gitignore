@@ -15,4 +15,6 @@ bin/*
 lib64
 share
 Marketingtool.egg-info
+target
+junit
 
