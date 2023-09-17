@@ -3,7 +3,7 @@
 
 import re
 from setuptools import setup
-
+from setuptools import find_packages
 version = re.search(
     "^__version__\s*=\s*'(.*)'",
     open('Marketingtool/version.py').read(),
@@ -23,12 +23,15 @@ setup(name='Marketingtool',
       url='https://github.com/robertzengcn/Marketingtool',
       py_modules=['usage'],
       keywords = ['Marketingtool', 'video edit', 'Subtitle Translate'],
-      packages=['Marketingtool'],
+      include_package_data=True,
+      packages=find_packages(),
       entry_points={'console_scripts': ['Marketingtool = Marketingtool.core:main']},
     #   package_dir={'examples': 'examples'},
       install_requires=requirements,
       classifiers=[
           'License :: OSI Approved :: MIT License',
           'Programming Language :: Python :: 3.9',
-      ]
+      ],
+      python_requires='>=3.9',
+      
 )
