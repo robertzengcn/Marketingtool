@@ -29,7 +29,7 @@ Insert Video into another video
 
 Translate subtitle files
 ```
-Marketingtool --action translate -f /path/to/subtitle/file --source-lang zh-CN --target-lang en
+Marketingtool --action translate -f /path/to/subtitle/file -o /path/to/output --source-lang zh-CN --target-lang en
 ```
 
 Remove watermark from video
