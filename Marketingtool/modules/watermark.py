@@ -22,7 +22,7 @@ class Watermark():
         tmpdir =self.getframe(video_path,max_frames)
         getWaterMark=get_watermark()
         image_path=getWaterMark.get_watermarks(tmpdir)
-        logger.info(image_path)
+        # logger.info(image_path)
         if image_path is None:
             raise Exception("watermark not generate success")
         # start to remove watermark

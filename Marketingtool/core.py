@@ -11,6 +11,12 @@ from Marketingtool.log import setup_logger
 from Marketingtool.modules.watermark import Watermark
 # from argparse import Namespace
 import json
+from numba.core.errors import NumbaDeprecationWarning, NumbaPendingDeprecationWarning
+import warnings
+
+# warnings.simplefilter('ignore', category=NumbaDeprecationWarning)
+# warnings.simplefilter('ignore', category=NumbaPendingDeprecationWarning)
+warnings.filterwarnings("ignore", message=".*The 'nopython' keyword.*")
 
 logger = logging.getLogger(__name__)
 

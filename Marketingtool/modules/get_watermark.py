@@ -6,6 +6,11 @@ from pathlib import Path
 import imageio.v2 as imageio
 import numpy as np
 from scipy.ndimage import gaussian_filter
+import warnings
+
+# warnings.simplefilter('ignore', category=NumbaDeprecationWarning)
+# warnings.simplefilter('ignore', category=NumbaPendingDeprecationWarning)
+warnings.filterwarnings("ignore", message=".*The 'nopython' keyword.*")
 
 class get_watermark():
     def __init__(self):

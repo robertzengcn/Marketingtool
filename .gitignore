@@ -17,4 +17,5 @@ share
 Marketingtool.egg-info
 target
 junit
+Marketingtool.egg-info/*
 
