@@ -11,7 +11,7 @@ from Marketingtool.log import setup_logger
 from Marketingtool.modules.watermark import Watermark
 # from argparse import Namespace
 import json
-from numba.core.errors import NumbaDeprecationWarning, NumbaPendingDeprecationWarning
+# from numba.core.errors import NumbaDeprecationWarning, NumbaPendingDeprecationWarning
 import warnings
 
 # warnings.simplefilter('ignore', category=NumbaDeprecationWarning)
