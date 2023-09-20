@@ -23,13 +23,13 @@ def setup_logger(level=logging.INFO,
     """
     logger = logging.getLogger()
     logger.setLevel(level)
-
+   
 
     # See here: http://stackoverflow.com/questions/7173033/duplicate-log-output-when-using-python-logging-module
     if not len(logger.handlers):
         formatter = logging.Formatter(format)
-
-        sh = logging.StreamHandler(stream=sys.stderr)
+        # set stream to sys.stdout see https://stackoverflow.com/questions/14058453/making-python-loggers-output-all-messages-to-stdout-in-addition-to-log-file
+        sh = logging.StreamHandler(stream=sys.stdout)
         sh.setFormatter(formatter)
         logger.addHandler(sh)
         if logfile is not None:
