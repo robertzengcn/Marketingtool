@@ -2,13 +2,13 @@
 
 import os
 import warnings
-
+from Marketingtool.common import path_leaf
+warnings.filterwarnings("ignore", message=".*The 'nopython' keyword.*")
 # warnings.simplefilter('ignore', category=NumbaDeprecationWarning)
 # warnings.simplefilter('ignore', category=NumbaPendingDeprecationWarning)
-warnings.filterwarnings("ignore", message=".*The 'nopython' keyword.*")
-import whisper
-from whisper.utils import get_writer
-from Marketingtool.common import path_leaf
+import whisper # noqa: E402
+from whisper.utils import get_writer # noqa: E402
+
 
 Transcrifiletype =dict[str,str]
 
