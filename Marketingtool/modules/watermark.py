@@ -57,7 +57,7 @@ class Watermark():
         run shell command
         """
         try:
-            subp = subprocess.check_output(command,shell=True,stderr=subprocess.STDOUT,encoding="utf-8")
+            subp = subprocess.check_output(command,shell=True,encoding="utf-8")
             return subp
         except subprocess.CalledProcessError:
             
