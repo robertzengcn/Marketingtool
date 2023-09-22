@@ -34,7 +34,7 @@ class Watermark():
         get frame from video
         """
         getframe="ffprobe -hide_banner -loglevel warning -select_streams v -skip_frame nokey -show_frames -show_entries frame=pkt_dts_time "+video_path+" | grep \"pkt_dts_time=\" | xargs shuf -n "+str(max_frames)+" -e | awk -F  \"=\" '{print $2}'"
-        keyframes_time=self.cmd(getframe)
+        keyframes_time=self.cmd(getframe).splitlines()
 
         tmpdir = tempfile.mkdtemp()
         logger.info("Extracting frames (up to: "+str(max_frames)+")... to the tmp path:"+tmpdir)
@@ -46,6 +46,7 @@ class Watermark():
                 continue
             
             generateframe="ffmpeg -y -hide_banner -loglevel error -ss "+i+" -i "+video_path+" -vframes 1 "+tmpdir+"/output_"+str(counter)+".png"
+            logger.info("run get frame pic command: "+generateframe)
             self.cmd(generateframe)
         # print("$counter ")
             counter=counter+1
