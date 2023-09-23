@@ -26,7 +26,7 @@ class Watermark():
         if image_path is None:
             raise Exception("watermark not generate success")
         # start to remove watermark
-        removecmd="ffmpeg -hide_banner -loglevel warning -y -stats -i "+video_path+" -acodec copy -vf \"removelogo="+image_path+"\" "+output_path+""
+        removecmd="ffmpeg -hide_banner -loglevel error -y -stats -i "+video_path+" -acodec copy -vf \"removelogo="+image_path+"\" "+output_path+""
         self.cmd(removecmd)
         shutil.rmtree(tmpdir)
     def getframe(self,video_path:str,max_frames:int=50)->str:    
