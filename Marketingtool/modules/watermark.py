@@ -51,7 +51,7 @@ class Watermark():
         # print("$counter ")
             counter=counter+1
         if counter < 2:
-            raise Exception("frames extracted, need at least 2, aborting.")
+            raise Exception("frames extracted, need at least 2, aborting. The command "+getframe+" failed.")
         return tmpdir
     def cmd(self,command):
         """
