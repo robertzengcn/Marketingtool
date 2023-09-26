@@ -42,6 +42,11 @@ Insert text into video
 Marketingtool --action inserttextinvideo -f ./path/to/video --insert-text-path ./path/to/text.txt --insert-text-step 50 --insert-text-num 30 --insert-text-frontsize 20 --insert-text-color green --insert-text-duration 15 -o ./path/to/result
 ```
 
+Convert video
+```
+Marketingtool --action convertvideo -f /path/to/video -o /path/video/output
+```
+
 ### How to develop
 You can also install python package comfortably with pip:
 
@@ -66,3 +71,4 @@ test remove water mark
 ```
 python3 -m unittest Tests.test_watermark.WatermarkTestCase.test_remove_watermark
 ```
+

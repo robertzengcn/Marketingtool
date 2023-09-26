@@ -153,6 +153,15 @@ def main(return_results=False, parse_cmd_line=True, config_from_dict=None,extern
     #         YoutubeModel.initialize_upload(youtube, namespace)
     #     except HttpError as e:
     #         print("An HTTP error %d occurred:\n%s" % (e.resp.status, e.content))
+    elif action=='convertvideo':
+        originvideo = config.get('inputfile', None)
+        if originvideo is None:
+            raise WrongConfigurationError("origin video is not specified") 
+        outputvideo = config.get('outputfile', None)
+        if outputvideo is None:
+            raise WrongConfigurationError("output video is not specified")                
+        videoModel=Videoedit()
+        videoModel.convertvideo(originvideo,outputvideo)
     else:
         raise WrongConfigurationError("action is not supported")
 

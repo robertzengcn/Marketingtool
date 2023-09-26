@@ -1,6 +1,8 @@
 from moviepy.editor import VideoFileClip, concatenate_videoclips,TextClip,CompositeVideoClip
 import os.path
 import io
+import subprocess
+
 class Videoedit():
     def __init__(self)-> None:
         pass 
@@ -79,4 +81,16 @@ class Videoedit():
             text = f.read()
         if text is None:
             raise Exception("text file is empty")
-        return self.InsertText(videopath, outputpath, text, step, insertNum, fronsize, frontcolor, durations)     
+        return self.InsertText(videopath, outputpath, text, step, insertNum, fronsize, frontcolor, durations)  
+    def convertvideo(self,videopath:str,outputpath:str)->str:
+        """
+        convert video
+        """
+        convertCommand="ffmpeg -loglevel error -y -i "+videopath+" -qscale 0 "+outputpath
+        try:
+            subp = subprocess.check_output(convertCommand,shell=True,encoding="utf-8")
+            return subp
+        except subprocess.CalledProcessError:
+            
+            raise Exception("run convert video command error for:"+convertCommand)        
+          
