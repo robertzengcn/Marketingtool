@@ -6,6 +6,7 @@ This package is a tool help you do follow marketing job:
 3. Translate subtitle files
 4. Insert text into video
 5. Remove water mark from video
+6. Convert video
 
 ### Install requirement
 This program require python 3.9 installed

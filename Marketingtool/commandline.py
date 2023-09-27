@@ -25,8 +25,8 @@ def get_command_line(only_print_help=False):
     #                          'second if you have the necessary number of proxies available. ',
     #                     choices=('http', 'selenium', 'http-async'))
 
-    parser.add_argument('-a', '--action', type=str, choices=['transcribe','translate','insertVideo','removeWatermark','inserttextinvideo','convertvideo'], default='transcribe',
-                        help='The action for the software to do. Valid values = (transcribe)',required=True)
+    parser.add_argument('-a', '--action', type=str, choices=['transcribe','translate','insertVideo','removeWatermark','inserttextinvideo','convertvideo'], default=None,
+                        help='The action for the software to do. Valid values = (transcribe)',required=False)
 
     parser.add_argument('-f','--input-file', type=str, dest='inputfile', action='store',
                         help='the audio file to transcribe')
@@ -169,7 +169,7 @@ NOTSET = 0
 #                              'want to use more than one at the same time, just separate with commatas: "google, bing, '
 #                              'yandex". If you want to use all search engines that are available, give \'*\' as '
 #                              'argument.')
-
+    parser.add_argument('--version', dest='version', default=True, action=argparse.BooleanOptionalAction)
     if only_print_help:
         parser.print_help()
     else:
