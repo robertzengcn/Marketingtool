@@ -41,7 +41,7 @@ def main(return_results=False, parse_cmd_line=True, config_from_dict=None,extern
     setup_logger(level=config.get('log_level').upper(), format=config.get('log_format'), logfile=config.get('log_file'))
     action = config.get('action', None)
     version=config.get('version', False)   
-    if(action is None and version==True):
+    if(action is None and version is True):
         print("version:1.0.9")
         return
         
