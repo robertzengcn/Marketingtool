@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import argparse
-# from Marketingtool.version import __version__
+from Marketingtool.version import __version__
 
 VALID_PRIVACY_STATUSES = ("public", "private", "unlisted")
 
@@ -15,7 +15,7 @@ def get_command_line(only_print_help=False):
 
     parser = argparse.ArgumentParser(prog='Marketingtool',
                                      description='An tool for run python script as marketing tool',
-                                     epilog='Marketingtool {version}. Please use it on your own risk. (c) by Robert Zeng')
+                                     epilog='Marketingtool '+__version__+'. Please use it on your own risk. (c) by Robert Zeng')
 
     # parser.add_argument('-a', '--scrape-method', type=str, default='http',
     #                     help='The scraping type. There are currently three types: "http", "selenium" and "http-async". '

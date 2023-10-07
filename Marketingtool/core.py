@@ -13,6 +13,7 @@ from Marketingtool.modules.watermark import Watermark
 import json
 # from numba.core.errors import NumbaDeprecationWarning, NumbaPendingDeprecationWarning
 import warnings
+from Marketingtool.version import __version__
 
 # warnings.simplefilter('ignore', category=NumbaDeprecationWarning)
 # warnings.simplefilter('ignore', category=NumbaPendingDeprecationWarning)
@@ -42,7 +43,7 @@ def main(return_results=False, parse_cmd_line=True, config_from_dict=None,extern
     action = config.get('action', None)
     version=config.get('version', False)   
     if(action is None and version is True):
-        print("version:1.0.9")
+        print(__version__)
         return
         
     if action == 'transcribe':
